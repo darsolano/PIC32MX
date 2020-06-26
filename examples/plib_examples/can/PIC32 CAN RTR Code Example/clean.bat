@@ -1,0 +1,22 @@
+del *.o
+del *.tagsrc
+del RIU*.txt
+del mx16*.txt
+del *.mcs
+del *.map
+del *.cof
+del *.mptags
+del *.*~
+del *.d
+del .\src\*.*~
+del .\h\*.*~
+del .\obj\*.d
+del .\obj\*.o
+del .\src\*.*~
+del .\h\*.*~
+del .\objects\*.d
+del .\objects\*.o
+del .\objects\*.elf
+del .\objects\*.hex
+del .\objects\*.map
+

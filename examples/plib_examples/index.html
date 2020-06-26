@@ -1,0 +1,1228 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="index_files/filelist.xml">
+<link rel=Edit-Time-Data href="index_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>PIC32 Peripheral Library Code Examples</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PostalCode"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="Street"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="address"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Microchip</o:Author>
+  <o:LastAuthor>Nilesh Rajbharti</o:LastAuthor>
+  <o:Revision>67</o:Revision>
+  <o:TotalTime>721</o:TotalTime>
+  <o:Created>2007-04-05T22:08:00Z</o:Created>
+  <o:LastSaved>2008-05-29T17:33:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>839</o:Words>
+  <o:Characters>4786</o:Characters>
+  <o:Company>Microchip Technology Inc</o:Company>
+  <o:Lines>39</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>5614</o:CharactersWithSpaces>
+  <o:Version>11.8132</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--dl
+	{list-style-position:outside;}
+dt
+	{list-style-position:outside;}
+ol
+	{list-style-position:outside;}
+ul
+	{list-style-position:outside;}
+li
+	{list-style-position:outside;}
+dd
+	{list-style-position:outside;}
+
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.3in;
+	text-indent:-.3in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	tab-stops:list .3in;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+h2
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.4in;
+	text-indent:-.4in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	tab-stops:list .4in;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	background:white;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.heading0, li.heading0, div.heading0
+	{mso-style-name:heading0;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+span.highlight
+	{mso-style-name:highlight;
+	mso-ansi-font-size:14.5pt;
+	mso-bidi-font-size:14.5pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	color:blue;
+	background:white;
+	font-weight:bold;}
+span.heading01
+	{mso-style-name:heading01;
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	color:black;
+	background:white;
+	font-weight:bold;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableContemporary
+	{mso-style-name:"Table Contemporary";
+	mso-tstyle-rowband-size:1;
+	mso-tstyle-colband-size:0;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:2.25pt solid white;
+	mso-border-insidev:2.25pt solid white;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableContemporaryFirstRow
+	{mso-style-name:"Table Contemporary";
+	mso-table-condition:first-row;
+	mso-tstyle-shading:white;
+	mso-tstyle-pattern:gray-20 black;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	color:windowtext;
+	mso-ansi-font-weight:bold;
+	mso-bidi-font-weight:bold;}
+table.MsoTableContemporaryOddRow
+	{mso-style-name:"Table Contemporary";
+	mso-table-condition:odd-row;
+	mso-tstyle-shading:white;
+	mso-tstyle-pattern:gray-5 black;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	color:windowtext;}
+table.MsoTableContemporaryEvenRow
+	{mso-style-name:"Table Contemporary";
+	mso-table-condition:even-row;
+	mso-tstyle-shading:white;
+	mso-tstyle-pattern:gray-20 black;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	color:windowtext;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!-------------------- HEAD --------------------------------------------><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="38914"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<div>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;font-family:Arial;
+color:black'><a href="http://www.microchip.com/" title=www.Microchip.com><span
+style='color:black;text-decoration:none;text-underline:none'><img border=0
+width=152 height=42 id="_x0000_i1025" src=MicrochipLogo.gif></span></a><br>
+</span></b><span class=highlight><span style='font-size:17.0pt'>Peripheral
+Library Code Examples</span></span><b><span style='font-size:14.0pt;font-family:
+Arial;color:black'> <o:p></o:p></span></b></p>
+
+</div>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Arial;color:black'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial;color:black'>This
+directory contains PIC32 Peripheral Library code examples for MPLAB XC32 C
+compiler. This directory may contain more than one code example. Each code
+example directory contains complete source code and MPLAB project files. In
+addition, it also contains a <i style='mso-bidi-font-style:normal'>build.bat</i>
+file to build the project from the command-line. There is also a <i
+style='mso-bidi-font-style:normal'>build_all.bat</i> file at the top level to
+build all examples at once from the command-line. The remainder of this
+document provides a brief overview of each example<o:p></o:p></span></p>
+
+<h1><a name="_Peripheral_Library_Examples"></a>Peripheral Library Examples</h1>
+
+<p><b style='mso-bidi-font-weight:normal'>Note:</b> These examples use
+peripheral library binaries distributed with MPLAB XC32. The source files are
+located in <i style='mso-bidi-font-style:normal'>&lt;xc32-install-path&gt;/pic32-libs/include/peripheral</i>
+and <i style='mso-bidi-font-style:normal'>&lt;xc32-install-path&gt;/pic32-libs/peripheral</i>
+directories. Refer to <i style='mso-bidi-font-style:normal'>&lt;xc32-install-path&gt;/docs/pic32_peripheral_libraries.pdf</i>
+for more information.<span style='font-size:14.0pt;font-family:Arial'><o:p></o:p></span></p>
+
+<table class=MsoTableContemporary border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:-1;mso-yfti-firstrow:yes'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:1'><b>Peripheral/Topic<o:p></o:p></b></p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-left-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:1'><b>Example Name<o:p></o:p></b></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-left-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:1'><b>Path<o:p></o:p></b></p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-left-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:1'><b>Description<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:0'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#F2F2F2;mso-shading:white;
+  mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Operation in IDLE mode</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="operate_in_idle_mode">operate_in_idle_mode</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>operate_in_idle_mode</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Configures Timer1 to operate in
+  IDLE mode, places CPU in IDLE mode and uses Timer1 interrupt to exit the IDLE
+  mode.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>A/D Converter</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="adc10/adc10_basic">adc10_basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>adc10/adc10_ basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Converts 2 analog inputs</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#F2F2F2;mso-shading:white;
+  mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Bus Matrix</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="bmx/bmx_basic">bmx_
+  basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>bmx/bmx_ basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Partitions RAM in user and kernel
+  mode</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Analog Comparator</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="cmp/cmp_basic">cmp_
+  basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>cmp/cmp_ basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Configures comparator in simple
+  mode</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#F2F2F2;mso-shading:white;
+  mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Comparator Voltage Reference</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="cvref/cvref_basic">cvref_basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>cvref/cvref_ basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Generates a triangle wave on
+  CVref output pin</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width=148 rowspan=6 valign=top style='width:110.7pt;border-top:none;
+  border-left:none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>DMA Controller</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="dma/led_txfer">led_txfer</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>dma/led_txfer</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Blink LED on an Explorer16 board
+  using the DMA and a pattern stored in Flash.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="dma/pmp_txfer">pmp_txfer</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>dma/pmp_txfer </p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Performs a transfer from RAM to
+  the PMP port</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="dma/crc_calculation">crc_calculation</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>dma/crc_calculation</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Calculates CRC of flash memory
+  using DMA CRC method</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="dma/m2m_copy">m2m_copy</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>dma/m2m_copy</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Copies data from one memory
+  region to another memory region</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="dma/uart_echo">uart_echo</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>dma/uart_echo</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Uses DMA channel to receive and
+  transmit UART data</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="dma/spi-txfer">spi_txfer</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>dma/spi_txfer</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Uses DMA channel to receive and
+  transmit SPI data</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>I2C</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="i2c/i2c_master">i2c_master</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>I2c/i2c_master</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Interfaces to Microchip serial
+  EEPROM 24LC256 as an I2C master</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#F2F2F2;mso-shading:white;
+  mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Input Capture</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="incap/icap_capture_event">incap_capture_event</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>incap/incap_capture_event</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Captures and time stamps an
+  external event</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13'>
+  <td width=148 rowspan=2 style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Interrupts</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="int/int_multi_vector">int_multi_vector</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>int/int_multi_vector</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><span lang=FR style='mso-ansi-language:
+  FR'>Uses Multi-vector interrupt mode<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="int/int_single_vector">int_single_vector</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>int/int_single_vector</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Uses Single-vector interrupt mode</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>NVM Controller</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="nvm/nvm_basic">nvm_simple</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>nvm/nvm_simple</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Erases, writes, and verifies a
+  block of flash program memory</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#F2F2F2;mso-shading:white;
+  mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Output Compare</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="ocmp/ocmp_simple_pwm">ocmp_simple_pwm</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>ocmp/ocmp_simple_pwm</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Generates a PWM waveform</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Oscillator</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="osc/osc_basic">osc_basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>osc/osc_basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Changes SYSCLK and PBCLK divider
+  values while CPU is running</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:18'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#F2F2F2;mso-shading:white;
+  mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Prefetch-Cache</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="pcache/pcache_init">pcache_init</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>pcache/pcache_init</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Configures Prefetch-Cache for basic
+  operation</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:19'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="pcache/pcache_stat">pcache_stat</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>pcache/pcache_stat</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Demonstrates the effect of Prefetch
+  cache code execution</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:20'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#F2F2F2;mso-shading:white;
+  mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><st1:place w:st="on"><st1:PlaceName
+   w:st="on">Parallel</st1:PlaceName> <st1:PlaceName w:st="on">Master</st1:PlaceName>
+   <st1:PlaceType w:st="on">Port</st1:PlaceType></st1:place></p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a
+  href="pmp/pmp_master_mode2_16bit">pmp_master_mode2</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>pmp/pmp_master_mode2</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Writes a block of data to an
+  external memory using master mode 2 &amp; 16-bit configuration</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:21'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Ports</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="ports/ports_basic">ports_basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>ports/ports_basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Exercises all features of PORT
+  I/O pins</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:22'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#F2F2F2;mso-shading:white;
+  mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="ports/blinky_leds">blinky_leds</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>ports/blinky_leds</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Blinks LEDs on Explorer-16 board</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:23'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Power Modes</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="power/power_basic">power_basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>power/power_basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Configures CPU to wakeup from
+  SLEEP using Watchdog timer</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:24'>
+  <td width=148 valign=top style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#F2F2F2;mso-shading:white;
+  mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>RESETs</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="reset/reset_basic">reset_basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>teset/reset_basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Demonstrates how application can detect
+  various RESET conditions </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:25'>
+  <td width=148 rowspan=2 style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>RTCC</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="reset/reset_basic">alarm</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>ttcc/alarm</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Demonstrates RTCC alarm feature</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:26'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="rtcc/time_date">time_date</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>ttcc/time_date</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Configures RTCC for current time
+  and date</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:27'>
+  <td width=148 rowspan=4 style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>SPI</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="spi/burst_master">burst_master</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>spi/burst_master</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Performs burst data transfer in
+  a master mode</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:28'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="spi/burst_slave">burst_slave</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>spi/burst_slave</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Performs burst data transfer in a
+  slave mode</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:29'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="spi/loopback">loopback</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>spi/loopback</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Performs SPI loopback test</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:30'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="spi/master_slave">master_slave</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>spi/master_slave</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Uses two SPI channels to
+  establish master/ &amp; slave connection</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:31'>
+  <td width=148 rowspan=2 style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Timers</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="timer/core_timer_int">core_timer_int</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>yimer/core_timer_int</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Configures core timer to
+  generate recurring interrupt</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:32'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="timer/timer1_int">timer1_int</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>timer/timer1_int</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Configures Timer1 to generate
+  recurring interrupt</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:33'>
+  <td width=148 rowspan=2 style='width:110.7pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>UART</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="uart/uart_basic">uart_basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>uart/uart_basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Uses UART in polling mode to
+  send and receive data</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:34'>
+  <td width=149 valign=top style='width:112.05pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'><a href="uart/uart_interrupt">uart_interrupt</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border-top:none;border-left:
+  none;border-bottom:solid white 2.25pt;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>uart/uart_interrupt</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;border-bottom:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#F2F2F2;mso-shading:white;mso-pattern:gray-5 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:64'>Uses UART to do interrupt-driven
+  receive and polled transmission</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:35;mso-yfti-lastrow:yes'>
+  <td width=148 valign=top style='width:110.7pt;border:none;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;background:#CCCCCC;mso-shading:white;
+  mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Watchdog Timer</p>
+  </td>
+  <td width=149 valign=top style='width:112.05pt;border:none;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'><a href="wdt/wdt_basic">wdt_basic</a></p>
+  </td>
+  <td width=186 valign=top style='width:139.8pt;border:none;border-right:solid white 2.25pt;
+  mso-border-top-alt:solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;
+  background:#CCCCCC;mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>wdt/wdt_basic</p>
+  </td>
+  <td width=285 valign=top style='width:213.8pt;border:none;mso-border-top-alt:
+  solid white 2.25pt;mso-border-left-alt:solid white 2.25pt;background:#CCCCCC;
+  mso-shading:white;mso-pattern:gray-20 black;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:128'>Demonstrates simple WDT usage</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Arial;color:black'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:Arial;color:black;
+background:white'>Microchip Technology Inc. <st1:address w:st="on"><st1:Street
+ w:st="on">2355 W. Chandler Blvd.</st1:Street> <st1:City w:st="on">Chandler</st1:City>,
+ <st1:State w:st="on">AZ</st1:State> <st1:PostalCode w:st="on">85224</st1:PostalCode></st1:address>
+</span><span style='font-size:10.0pt;font-family:Arial;color:black'><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
